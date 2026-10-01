@@ -4,29 +4,29 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Remap the default blue palette to an orange spectrum so existing "blue-*" utilities render orange
+        // Keep legacy blue utility names aligned with the PPR red-orange theme
         blue: {
-          50: '#fff6ef',
-          100: '#ffeeda',
-          200: '#ffd6bc',
-          300: '#ffb88a',
-          400: '#ff9a56',
-          500: '#F45B0A', // primary
-          600: '#FF6A00', // bright / hover
-          700: '#C2410C',
-          800: '#9A2E08',
-          900: '#7A2006',
+          50: '#F8F9FA',
+          100: '#F3F4F6',
+          200: '#E5E7EB',
+          300: '#D1D5DB',
+          400: '#9CA3AF',
+          500: '#E94B2C', // primary
+          600: '#C93D24', // hover
+          700: '#9F311F',
+          800: '#74271D',
+          900: '#4A1D19',
         },
         // Named primary palette for semantic use
         primary: {
-          DEFAULT: '#F45B0A',
-          light: '#FF9A56',
-          bright: '#FF6A00',
-          dark: '#C2410C',
+          DEFAULT: '#E94B2C',
+          light: '#E94B2C',
+          bright: '#E94B2C',
+          dark: '#C93D24',
         },
         // Dark navy tones
-        'navy-dark': '#071329',
-        'navy-deep': '#0B1730',
+        'navy-dark': '#111827',
+        'navy-deep': '#1F2937',
       },
     },
   },

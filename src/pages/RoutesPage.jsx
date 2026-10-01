@@ -1,131 +1,200 @@
 import React from 'react';
 import { Compass, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Reveal from '../components/Reveal';
 
 export default function RoutesPage() {
   const transitHubs = [
-    { name: 'Turkmenistan Central Junction / Ashgabat', role: 'Central Asia & Caucasus coordination hub, major rail & highway junction.' },
-    { name: 'Dubai Commercial Logistics Hub / Prime Tower', role: 'Sea & Air freight forwarding management, enterprise corporate accounts.' },
-    { name: 'Strategic Border Crossings & Customs Points', role: 'Seamless connection across Iran, Turkey, Russia, Europe, and China.' },
+    {
+      name: 'Northeast',
+      role: 'Regional freight routes connecting the Northeast from Thornton, Illinois.',
+    },
+    {
+      name: 'Midwest',
+      role: 'Great Lakes and Midwest freight routes coordinated from our Illinois hub.',
+    },
+    {
+      name: 'South',
+      role: 'Road and rail freight connections serving Southern states.',
+    },
+    {
+      name: 'West',
+      role: 'Regional freight routes connecting destinations across the Western states.',
+    },
   ];
 
   return (
-    <div className="space-y-16 pb-20 font-sans">
-      {/* Page Header Banner */}
-      <section className="bg-[color:var(--color-navy-dark)] py-20 text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[color:var(--color-primary)]/20 via-transparent to-transparent pointer-events-none"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[color:var(--color-primary)] bg-white/10 px-4 py-1.5 rounded-full border border-white/15 inline-block">
-            Global Trade Architecture
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Active Trade Corridors & Routes</h1>
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-            Connecting key economic zones, transit sea ports, and border crossings across the Middle East, Central Asia, Europe, and Asia-Pacific.
+    <div className="font-sans overflow-x-hidden" style={{ background: 'var(--color-bg)' }}>
+
+      {/* Page Header */}
+      <section className="page-header">
+        <div className="relative z-10 max-w-3xl mx-auto px-6 space-y-4">
+          <span className="eyebrow-tag-dark inline-flex">US Domestic Network</span>
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white"
+            style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}
+          >
+            US Regional Routes
+          </h1>
+          <p className="text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed" style={{ color: 'var(--color-text-on-dark)' }}>
+            Road and rail freight connections from Thornton, Illinois to the Northeast, Midwest, South, and West.
           </p>
         </div>
       </section>
 
-      {/* Corridor Details Section */}
-      <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <span className="text-primary font-bold text-xs uppercase tracking-widest bg-primary/5 px-3 py-1 rounded-full border border-primary/10 inline-block">
-              Network Optimization
-            </span>
-            <h2 className="text-3xl font-extrabold text-slate-900 leading-tight">
-              Strategic Logistics Network & Trade Corridors
-            </h2>
-          </div>
-          <p className="text-slate-600 text-sm leading-relaxed">
-            Our extensive logistics network connects diverse markets through strategic trade corridors. With direct access to major ports, border crossings, and key transit hubs, we ensure a smooth and reliable flow of goods across multiple destinations.
-          </p>
-          <p className="text-slate-600 text-sm leading-relaxed">
-            Through our road, rail, sea, and air transport solutions, every shipment is delivered with speed, safety, and cost efficiency. Clients can explore active routes, identify key hubs, and select the most suitable transport option tailored to their needs.
-          </p>
-          <p className="text-slate-600 text-sm leading-relaxed">
-            Whether moving heavy industrial equipment, steel products, food commodities, or general cargo, our network covers a wide range of short- and long-haul connections, enabling fast and secure access to vital trade centers.
-          </p>
-          <div className="bg-slate-50 border border-slate-200/80 p-6 rounded-3xl space-y-4">
-            <h4 className="font-extrabold text-slate-900 text-sm flex items-center gap-2">
-              <Compass size={18} className="text-primary" /> Key Corridor Advantages
-            </h4>
-            <ul className="text-xs text-slate-600 space-y-2.5">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 size={14} className="text-primary shrink-0" />
-                <span>Direct wagon rail access crossing Central Asia and the Caucasus.</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 size={14} className="text-primary shrink-0" />
-                <span>Multi-modal cargo transfer (Rail-to-Sea & Rail-to-Road).</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 size={14} className="text-primary shrink-0" />
-                <span>SLA-monitored border crossing custom documentation.</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 size={14} className="text-primary shrink-0" />
-                <span>Consolidated logistics hubs reducing storage overheads.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+      {/* Corridor Details */}
+      <section className="py-12 md:py-16" style={{ background: 'var(--color-surface)' }}>
+        <div className="container-site grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
-        {/* Visual Map/Video representation */}
-        <div className="space-y-6">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video bg-[color:var(--color-navy-dark)] flex items-center justify-center border border-slate-200">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover opacity-75"
-            >
-              <source
-                type="video/mp4"
-                src="https://prplogistic.com/wp-content/uploads/2025/09/double_exposure_of_two_businessmen_handshake_with_world_map_and.mp4"
-              />
-            </video>
-            <div className="absolute inset-0 video-mask opacity-70"></div>
-            <div className="relative z-10 text-center p-6 text-white space-y-2">
-              <h3 className="font-extrabold text-xl md:text-2xl uppercase tracking-tight">Active Trade Corridors</h3>
-              <p className="text-xs text-slate-300">Connecting East and West seamlessly</p>
+          {/* Text */}
+          <Reveal variant="fade-up">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <span className="eyebrow-tag inline-flex">Domestic Network</span>
+                <h2 className="sh-h2 mt-3">Regional Freight Routes Across the US</h2>
+              </div>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--color-ink)' }}>
+                Our US network connects the Northeast, Midwest, South, and West through regional freight routes coordinated from Thornton, Illinois.
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--color-ink)' }}>
+                Choose road or rail service based on your cargo, timing, and destination. Our team can coordinate routing and shipment details for each lane.
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--color-ink)' }}>
+                We coordinate short- and long-haul connections for industrial equipment, steel, food commodities, and general cargo.
+              </p>
+
+              {/* Key Advantages */}
+              <div
+                className="p-6 rounded-2xl space-y-4"
+                style={{
+                  background: 'var(--color-bg)',
+                  border: '1px solid var(--color-border)',
+                }}
+              >
+                <h4
+                  className="font-extrabold text-sm flex items-center gap-2"
+                  style={{ color: 'var(--color-charcoal)' }}
+                >
+                  <Compass size={16} style={{ color: 'var(--color-primary)' }} />
+                  Route Services
+                </h4>
+                <ul className="text-xs space-y-2.5" style={{ color: 'var(--color-ink)' }}>
+                  {[
+                    'Road freight routes across all four US regions.',
+                    'Rail freight coordination for regional and long-haul shipments.',
+                    'Routing support from the Thornton, Illinois location.',
+                    'Shipment planning based on cargo, destination, and schedule.',
+                  ].map((pt) => (
+                    <li key={pt} className="flex items-start gap-2">
+                      <CheckCircle2 size={13} className="shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </Reveal>
 
-          {/* List of Hubs */}
-          <div className="space-y-4">
-            <h3 className="font-extrabold text-lg text-slate-900">Primary Operations Hubs</h3>
-            <div className="space-y-3">
-              {transitHubs.map((hub, idx) => (
-                <div key={idx} className="flex gap-4 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm card-hover-elevation text-sm">
-                  <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center font-extrabold text-primary text-xs shrink-0 mt-0.5">
-                    {idx + 1}
-                  </div>
-                  <div>
-                    <h4 className="font-extrabold text-slate-900">{hub.name}</h4>
-                    <p className="text-slate-600 text-xs mt-1 leading-relaxed">{hub.role}</p>
-                  </div>
+          {/* Visual + Hubs */}
+          <Reveal variant="fade-up" delay="100ms">
+            <div className="space-y-6">
+              {/* Video card */}
+              <div
+                className="relative rounded-2xl overflow-hidden shadow-xl aspect-video flex items-center justify-center"
+                style={{ background: 'var(--color-navy)', border: '1px solid var(--color-border)' }}
+              >
+                <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" style={{ opacity: 0.75 }}>
+                  <source
+                    type="video/mp4"
+                    src="https://prplogistic.com/wp-content/uploads/2025/09/double_exposure_of_two_businessmen_handshake_with_world_map_and.mp4"
+                  />
+                </video>
+                <div className="absolute inset-0" style={{ background: 'rgba(17,24,39,0.55)' }} />
+                <div className="relative z-10 text-center p-6 text-white space-y-2">
+                  <h3 className="font-extrabold text-xl md:text-2xl" style={{ fontFamily: 'var(--font-heading)' }}>
+                    US Regional Routes
+                  </h3>
+                  <p className="text-xs" style={{ color: 'var(--color-text-on-dark)' }}>Four regions, coordinated from Thornton, Illinois</p>
                 </div>
-              ))}
+              </div>
+
+              {/* Hub list */}
+              <div>
+                <h3
+                  className="font-extrabold text-base mb-4"
+                  style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-charcoal)' }}
+                >
+                  US Regional Route Coverage
+                </h3>
+                <div className="space-y-3">
+                  {transitHubs.map((hub, idx) => (
+                    <div
+                      key={idx}
+                      className="flex gap-4 p-5 rounded-2xl text-sm card-hover"
+                      style={{
+                        background: 'var(--color-surface)',
+                        border: '1px solid var(--color-border)',
+                        boxShadow: 'var(--shadow-card)',
+                      }}
+                    >
+                      <div
+                        className="w-8 h-8 rounded-xl flex items-center justify-center font-extrabold text-xs shrink-0 mt-0.5"
+                        style={{
+                          background: 'var(--color-primary-muted)',
+                          color: 'var(--color-primary)',
+                        }}
+                      >
+                        {idx + 1}
+                      </div>
+                      <div>
+                        <h4 className="font-extrabold text-sm" style={{ color: 'var(--color-charcoal)' }}>{hub.name}</h4>
+                        <p className="text-xs mt-1 leading-relaxed" style={{ color: 'var(--color-muted)' }}>{hub.role}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* CTA Box */}
-      <section className="max-w-4xl mx-auto px-6">
-        <div className="bg-[color:var(--color-navy-dark)] text-white rounded-3xl p-10 text-center space-y-5 shadow-2xl relative overflow-hidden border border-slate-800">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">Ready to Schedule a Route Transit?</h2>
-          <p className="text-slate-300 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
-            Contact our route coordinators for specific shipping rates, border crossing schedules, and custom clearance support.
-          </p>
-          <div className="pt-2">
-            <Link to="/contact" className="btn-primary inline-flex items-center gap-2 px-8 py-4">
-              Get Custom Route Quote
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
+      {/* CTA */}
+      <section className="py-12 md:py-14" style={{ background: 'var(--color-bg)', borderTop: '1px solid var(--color-border)' }}>
+        <div className="container-site max-w-3xl mx-auto">
+          <Reveal variant="fade-up">
+            <div
+              className="rounded-3xl p-10 text-center space-y-5 relative overflow-hidden"
+              style={{
+                background: 'var(--color-navy)',
+                border: '1px solid rgba(255,255,255,0.06)',
+                boxShadow: 'var(--shadow-float)',
+              }}
+            >
+              <div
+                className="absolute top-0 right-0 w-56 h-56 rounded-full pointer-events-none"
+                style={{
+                  background: 'radial-gradient(circle, rgba(233,75,44,0.18) 0%, transparent 70%)',
+                  filter: 'blur(40px)',
+                }}
+              />
+              <h2
+                className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white relative z-10"
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >
+                Ready to Schedule a Route Transit?
+              </h2>
+              <p className="text-xs sm:text-sm max-w-lg mx-auto leading-relaxed relative z-10" style={{ color: 'var(--color-text-on-dark)' }}>
+                Contact our route coordinators for US road and rail shipping rates and schedules.
+              </p>
+              <div className="pt-2 relative z-10">
+                <Link to="/contact" className="btn btn-primary">
+                  Get Custom Route Quote
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
     </div>

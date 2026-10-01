@@ -8,9 +8,7 @@ import RoutesPage from './pages/RoutesPage';
 import Contact from './pages/Contact';
 import ServicesIndex from './pages/Services/ServicesIndex';
 import RailTransport from './pages/Services/RailTransport';
-import AirTransport from './pages/Services/AirTransport';
 import RoadTransport from './pages/Services/RoadTransport';
-import OceanTransport from './pages/Services/OceanTransport';
 
 // Helper component to auto-scroll page to top on route change
 function ScrollToTop() {
@@ -38,9 +36,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<ServicesIndex />} />
             <Route path="/services/rail" element={<RailTransport />} />
-            <Route path="/services/air" element={<AirTransport />} />
             <Route path="/services/road" element={<RoadTransport />} />
-            <Route path="/services/ocean" element={<OceanTransport />} />
           </Routes>
         </main>
 

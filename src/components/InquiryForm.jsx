@@ -177,7 +177,7 @@ export default function InquiryForm({ serviceType = 'General Freight' }) {
                   required
                   value={formData.origin}
                   onChange={handleChange}
-                  placeholder="e.g. Ashgabat, Turkmenistan"
+                  placeholder="e.g. Chicago, USA"
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm font-medium text-slate-800"
                 />
               </div>
@@ -193,7 +193,7 @@ export default function InquiryForm({ serviceType = 'General Freight' }) {
                   required
                   value={formData.destination}
                   onChange={handleChange}
-                  placeholder="e.g. Dubai, UAE"
+                  placeholder="e.g. Los Angeles, USA"
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm font-medium text-slate-800"
                 />
               </div>

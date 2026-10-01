@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-  <rect width="48" height="48" rx="8" fill="#F45B0A" />
+  <rect width="48" height="48" rx="8" fill="#E94B2C" />
   <g transform="translate(6,6)" fill="#fff" font-family="Inter, sans-serif" font-weight="700">
     <text x="6" y="26" font-size="20">PPR</text>
   </g>

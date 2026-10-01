@@ -1,32 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, ArrowUp, PhoneCall, Shield, ChevronRight } from 'lucide-react';
-import logoImg from '../assets/logo3.png';
+import { MapPin, Mail, ArrowUp, Shield, ChevronRight, Clock } from 'lucide-react';
+import footerLogo from '../assets/footer-logo.png';
 
 const navSections = [
   {
     label: 'Company',
     links: [
-      { name: 'Home',    path: '/' },
-      { name: 'About PPR', path: '/about' },
-      { name: 'Contact Us', path: '/contact' },
+      { name: 'Home',        path: '/' },
+      { name: 'About PPR',   path: '/about' },
+      { name: 'Routes',      path: '/routes' },
+      { name: 'Contact Us',  path: '/contact' },
     ],
   },
   {
     label: 'Services',
     links: [
-      { name: 'Road Freight',        path: '/services/road' },
+      { name: 'Road Freight',         path: '/services/road' },
       { name: 'Rail & Wagon Freight', path: '/services/rail' },
-      { name: 'Express Air Cargo',   path: '/services/air' },
-      { name: 'Ocean Freight',       path: '/services/ocean' },
-      { name: 'All Services',        path: '/services' },
-    ],
-  },
-  {
-    label: 'Network',
-    links: [
-      { name: 'Trade Corridors',  path: '/routes' },
-      { name: 'Global Routes',    path: '/routes' },
+      { name: 'All Services',         path: '/services' },
     ],
   },
 ];
@@ -38,48 +30,45 @@ export default function Footer() {
   };
 
   return (
-    <footer
-      style={{ background: 'var(--color-navy)', borderTop: '1px solid rgba(255,255,255,0.05)' }}
-      className="text-slate-400 font-sans"
-    >
-      {/* ── Main footer grid ── */}
-      <div className="container-site pt-16 pb-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+    <footer style={{ background: 'var(--color-navy)' }} className="font-sans">
+      {/* ── Thin PPR brand accent line at the very top ── */}
+      <div style={{ height: '3px', background: 'var(--color-primary)' }} />
+
+      {/* ── Main grid ── */}
+      <div className="container-site pt-10 pb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
 
           {/* Brand column — 4 cols */}
-          <div className="lg:col-span-4 space-y-5">
-            <Link to="/" className="inline-block focus:outline-none">
+          <div className="lg:col-span-4 space-y-4">
+            <Link to="/" className="inline-block" aria-label="PPR Logistics home">
               <img
-                src={logoImg}
-                alt="PPR Logistics"
-                className="h-10 w-auto object-contain"
-                style={{ filter: 'brightness(1)' }}
+                src={footerLogo}
+                alt="PPR Logistics — Delivering More. Connecting Futures."
+                className="h-auto w-[240px] max-w-full object-contain sm:w-[270px]"
               />
             </Link>
-            <p className="text-sm leading-relaxed text-slate-300 max-w-xs">
-              PPR International Transport &amp; Logistics — specialist freight forwarder
-              covering road, rail, sea, and air across Central Asia, the Middle East,
-              Russia, and Europe.
+            <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--color-text-on-dark)' }}>
+              PPR International Transport &amp; Logistics — road and rail freight forwarding connecting regional trade corridors.
             </p>
+            {/* Compliance badge */}
             <div
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold"
               style={{
-                background: 'rgba(232,93,4,0.10)',
+                background: 'var(--color-primary-muted)',
                 color: 'var(--color-primary-light)',
-                border: '1px solid rgba(232,93,4,0.18)',
+                border: '1px solid rgba(233,75,44,0.20)',
               }}
             >
-              <Shield size={13} style={{ color: 'var(--color-primary)' }} />
-              Licensed &amp; SMGS/CMR Certified Carrier
+              <Shield size={12} style={{ color: 'var(--color-primary)' }} />
+              CMR &amp; SMGS Standardized Carrier
             </div>
           </div>
 
-          {/* Nav sections — 2 cols each */}
+          {/* Navigation columns — 2 cols each */}
           {navSections.map((section) => (
             <div key={section.label} className="lg:col-span-2">
               <h5
-                className="text-white text-xs font-bold uppercase tracking-widest mb-5"
-                style={{ letterSpacing: '0.1em' }}
+                className="text-white text-[11px] font-bold uppercase tracking-[0.12em] mb-4"
               >
                 {section.label}
               </h5>
@@ -88,10 +77,13 @@ export default function Footer() {
                   <li key={l.name}>
                     <Link
                       to={l.path}
-                      className="text-sm text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 group"
+                      className="flex items-center gap-1.5 text-sm transition-colors duration-150 group"
+                      style={{ color: 'var(--color-text-on-dark)' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-primary)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-on-dark)')}
                     >
                       <ChevronRight
-                        size={12}
+                        size={11}
                         className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
                         style={{ color: 'var(--color-primary)' }}
                       />
@@ -103,111 +95,99 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Contact column — 2 cols */}
-          <div className="lg:col-span-2">
-            <h5
-              className="text-white text-xs font-bold uppercase tracking-widest mb-5"
-              style={{ letterSpacing: '0.1em' }}
-            >
+          {/* Contact column — 4 cols */}
+          <div className="lg:col-span-4">
+            <h5 className="text-white text-[11px] font-bold uppercase tracking-[0.12em] mb-4">
               Contact
             </h5>
             <ul className="space-y-4">
-              <li>
-                <a
-                  href="tel:+99365892496"
-                  className="flex items-start gap-3 text-sm text-slate-300 hover:text-white transition-colors group"
-                >
-                  <PhoneCall
-                    size={15}
-                    className="shrink-0 mt-0.5"
-                    style={{ color: 'var(--color-primary)' }}
-                  />
-                  <div>
-                    <p className="font-medium text-slate-300">Dispatch Hotline</p>
-                    <p className="text-xs mt-0.5">+993 65892496</p>
-                    <p className="text-xs">+98 9159161665</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <div className="flex items-start gap-3 text-sm">
-                  <Phone
-                    size={15}
-                    className="shrink-0 mt-0.5"
-                    style={{ color: 'var(--color-primary)' }}
-                  />
-                  <div>
-                    <p className="font-medium text-slate-300">WhatsApp</p>
-                    <p className="text-xs mt-0.5">+971 50 655 1006</p>
-                    <p className="text-xs">+995 555 442557</p>
-                  </div>
+              <li className="flex items-start gap-3 text-sm" style={{ color: 'var(--color-text-on-dark)' }}>
+                <MapPin size={14} className="shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                <div>
+                  <p className="text-white text-xs font-semibold mb-0.5">US Location</p>
+                  <p className="text-xs">334 W Armory Dr, Thornton, IL 60476, USA</p>
                 </div>
               </li>
               <li>
                 <a
                   href="mailto:info@prplogistic.com"
-                  className="flex items-start gap-3 text-sm text-slate-300 hover:text-white transition-colors"
+                  className="flex items-start gap-3 text-sm transition-colors duration-150"
+                  style={{ color: 'var(--color-text-on-dark)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-primary)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-on-dark)')}
                 >
-                  <Mail
-                    size={15}
-                    className="shrink-0 mt-0.5"
-                    style={{ color: 'var(--color-primary)' }}
-                  />
+                  <Mail size={14} className="shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                   <div>
-                    <p className="font-medium text-slate-300">Email</p>
-                    <p className="text-xs mt-0.5 underline decoration-slate-700 hover:decoration-current">
+                    <p className="text-white text-xs font-semibold mb-0.5">Email</p>
+                    <p className="text-xs" style={{ textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,0.2)' }}>
                       info@prplogistic.com
                     </p>
                   </div>
                 </a>
               </li>
+              <li className="flex items-start gap-3 text-sm" style={{ color: 'var(--color-text-on-dark)' }}>
+                <Clock size={14} className="mt-0.5 shrink-0" style={{ color: 'var(--color-primary)' }} />
+                <div>
+                  <p className="mb-0.5 text-xs font-semibold text-white">Dispatch Support</p>
+                  <p className="text-xs">Available 24/7</p>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* ── Office addresses strip ── */}
+        {/* ── Real office addresses strip ── */}
         <div
-          className="mt-12 pt-8 grid grid-cols-1 sm:grid-cols-2 gap-6"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+          className="mt-8 pt-6 grid grid-cols-1 gap-4"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
         >
-          <div className="flex items-start gap-3">
-            <MapPin size={15} className="shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
-            <div>
-              <p className="text-white text-xs font-semibold mb-0.5">Turkmenistan Office</p>
-              <p className="text-slate-400 text-xs leading-relaxed">
-                334, 1958 (Andalyp) Street, Berkararlyk District, Ashgabat, Turkmenistan
-              </p>
+          {[
+            {
+              label: 'US Location',
+              address: '334 W Armory Dr, Thornton, IL 60476, USA',
+            },
+          ].map(({ label, address }) => (
+            <div key={label} className="flex items-start gap-3">
+              <MapPin size={14} className="shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+              <div>
+                <p className="text-white text-xs font-semibold mb-0.5">{label}</p>
+                <p className="text-xs leading-relaxed" style={{ color: 'var(--color-text-on-dark)' }}>
+                  {address}
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <MapPin size={15} className="shrink-0 mt-0.5" style={{ color: 'var(--color-primary-light)' }} />
-            <div>
-              <p className="text-white text-xs font-semibold mb-0.5">Emirates Office</p>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Unit 7, 20th Floor, Prime Tower, Business Bay, Dubai, United Arab Emirates
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
       {/* ── Bottom bar ── */}
-      <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-        <div className="container-site py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-xs text-center sm:text-left">
+      <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="container-site py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-center sm:text-left" style={{ color: '#64748B' }}>
             &copy; {new Date().getFullYear()} PPR International Transport &amp; Logistics Co. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
-            <span className="text-slate-500 text-xs hidden sm:inline">Enterprise Logistics Architecture</span>
+            <span className="text-xs" style={{ color: '#64748B' }}>
+              Privacy Policy &nbsp;·&nbsp; Terms of Service
+            </span>
             <a
               href="#top"
               onClick={scrollToTop}
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition-all duration-200"
+              className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200"
               style={{
                 background: 'rgba(255,255,255,0.05)',
                 border: '1px solid rgba(255,255,255,0.08)',
+                color: '#94A3B8',
               }}
               aria-label="Back to top"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#fff';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.10)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = '#94A3B8';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+              }}
             >
               <ArrowUp size={14} />
             </a>

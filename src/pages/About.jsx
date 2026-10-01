@@ -1,136 +1,228 @@
 import React from 'react';
-import { Target, Compass, Award, Users, ShieldCheck, MapPin, Clock } from 'lucide-react';
+import { Target, Compass, Award, Users, MapPin, Mail } from 'lucide-react';
 import Reveal from '../components/Reveal';
 
 export default function About() {
   const values = [
-    { icon: <Target className="text-primary" size={26} />, title: 'Our Mission', desc: 'To construct the most resilient, cost-effective, and transparent multimodal transport bridges connecting global trade corridors.' },
-    { icon: <Compass className="text-primary" size={26} />, title: 'Corridor Strategy', desc: 'Deploying dedicated wagon fleets, road trucks, and port handling infrastructure to optimize end-to-end cargo transit.' },
-    { icon: <Award className="text-primary" size={26} />, title: 'Quality & Governance', desc: 'Strict compliance with international standards (CMR, SMGS) and ISO safety frameworks to safeguard freight.' },
-    { icon: <Users className="text-primary" size={26} />, title: 'Accountability', desc: 'Building long-term strategic relationships with total transparency, real-time dispatch reporting, and dedicated SLAs.' },
+    {
+      Icon: Target,
+      title: 'Our Mission',
+      desc: 'To construct the most resilient, cost-effective, and transparent multimodal transport bridges connecting global trade corridors.',
+    },
+    {
+      Icon: Compass,
+      title: 'Corridor Strategy',
+      desc: 'Deploying dedicated wagon fleets, road trucks, and port handling infrastructure to optimize end-to-end cargo transit.',
+    },
+    {
+      Icon: Award,
+      title: 'Quality & Governance',
+      desc: 'Strict compliance with international standards — CMR for road haulage and SMGS for rail freight — to safeguard every shipment.',
+    },
+    {
+      Icon: Users,
+      title: 'Client Accountability',
+      desc: 'Building long-term relationships with total transparency, real-time dispatch reporting, and a dedicated point of contact.',
+    },
+  ];
+
+  const offices = [
+    {
+      name: 'US Location',
+      address: '334 W Armory Dr, Thornton, IL 60476, USA',
+      email: 'info@prplogistic.com',
+    },
   ];
 
   return (
-    <div className="space-y-16 pb-20 font-sans">
-      {/* Page Header Banner */}
-      <section className="bg-[color:var(--color-navy-dark)] py-20 text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[color:var(--color-primary)]/20 via-transparent to-transparent pointer-events-none"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-4">
-            <div className="badge mx-auto">Corporate Architecture & Capabilities</div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">About PPR Logistics</h1>
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-            Discover the strategic infrastructure, operational standards, and freight forwarders backing PPR International Transport.
+    <div className="font-sans overflow-x-hidden" style={{ background: 'var(--color-bg)' }}>
+
+      {/* Page Header */}
+      <section className="page-header">
+        <div className="relative z-10 max-w-3xl mx-auto px-6 space-y-4">
+          <span className="eyebrow-tag-dark inline-flex">
+            Corporate Architecture &amp; Capabilities
+          </span>
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white"
+            style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}
+          >
+            About PPR Logistics
+          </h1>
+          <p className="text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed" style={{ color: 'var(--color-text-on-dark)' }}>
+            Discover the operational standards, freight capabilities, and US location backing PPR International Transport.
           </p>
         </div>
       </section>
 
-      {/* Main Narrative Section */}
-      <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <Reveal variant="slide-right">
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <span className="text-primary font-bold text-xs uppercase tracking-widest bg-primary/5 px-3 py-1 rounded-full border border-primary/10 inline-block">
-              International Transport Leader
-            </span>
-            <h2 className="text-3xl font-extrabold text-slate-900 leading-tight">
-              PPR International Transport & Logistics Co.
-            </h2>
-          </div>
-          <p className="text-slate-600 text-sm leading-relaxed">
-            At PPR, we are more than a transport company — we are the vital supply chain infrastructure that connects global enterprise markets and accelerates commercial growth. With deep expertise, skilled route dispatchers, and an agile network across strategic corridors, we deliver integrated logistics solutions that ensure speed, transparency, and cost efficiency.
-          </p>
-          <p className="text-slate-600 text-sm leading-relaxed">
-            PPR combines full coverage of road, rail, sea, and air freight with tailored multimodal routes to handle every type of cargo — from oversized and heavy-lift project shipments to temperature-controlled perishables and time-critical goods. Our cross-border operations span Central Asia, the Caucasus, the Middle East, Turkey, Russia, and Europe.
-          </p>
-          <p className="text-slate-600 text-sm leading-relaxed">
-            Our capabilities extend far beyond transport, including international freight forwarding, full supply chain management, customs clearance, warehousing, cargo insurance, and last-mile delivery.
-          </p>
-          <div className="bg-slate-50 border-l-4 border-primary p-6 rounded-r-2xl border border-slate-200/80">
-            <p className="text-slate-800 font-medium italic text-sm leading-relaxed">
-              "What sets PPR apart is our unwavering commitment to professionalism, accountability, and industry-specific solutions — not merely moving cargo, but creating sustainable enterprise value and building long-term strategic partnerships."
-            </p>
-            <span className="block mt-3 text-xs font-bold text-slate-500 uppercase tracking-wider">— Management Board, PPR Logistics</span>
-          </div>
-        </div>
-        </Reveal>
+      {/* Main Narrative */}
+      <section className="py-12 md:py-16" style={{ background: 'var(--color-surface)' }}>
+        <div className="container-site grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-        {/* Brand Graphic Image */}
-        <Reveal variant="fade-in" delay="150ms">
-        <div className="relative aspect-square md:aspect-auto md:h-[520px] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200 img-hover-scale">
-          <img
-            src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&q=80&w=800"
-            alt="Corporate meeting logistics planning"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-navy-dark)]/85 via-transparent to-transparent"></div>
-          <div className="absolute bottom-8 left-8 right-8 text-white space-y-2">
-            <span className="text-[11px] uppercase font-bold tracking-widest text-[color:var(--color-primary)] bg-white/10 px-3 py-1 rounded-full border border-white/10">
-              Supply Chain Execution
-            </span>
-            <h3 className="font-extrabold text-2xl">Logistics Engineered As Strategy</h3>
-            <p className="text-xs text-slate-300">Orchestrating freight flow across global trade routes.</p>
-          </div>
+          <Reveal variant="slide-right">
+            <div className="space-y-5">
+              <div className="space-y-2">
+                <span className="eyebrow-tag inline-flex">International Transport Leader</span>
+                <h2 className="sh-h2 mt-3">PPR International Transport &amp; Logistics Co.</h2>
+              </div>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--color-ink)' }}>
+                At PPR, we are more than a transport company — we are the vital supply chain infrastructure that connects enterprise markets and accelerates commercial growth. With deep expertise, skilled route dispatchers, and an agile network across strategic corridors, we deliver integrated logistics solutions that ensure speed, transparency, and cost efficiency.
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--color-ink)' }}>
+                PPR combines road and rail freight with tailored multimodal routes to handle cargo ranging from oversized and heavy-lift project shipments to temperature-controlled and time-critical goods.
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--color-ink)' }}>
+                Our capabilities extend to international freight forwarding, customs clearance, cargo documentation, and last-mile coordination.
+              </p>
+              {/* Quote block */}
+              <div
+                className="p-5 rounded-r-2xl"
+                style={{
+                  background: 'var(--color-bg)',
+                  borderLeft: '4px solid var(--color-primary)',
+                  border: '1px solid var(--color-border)',
+                  borderLeftWidth: '4px',
+                  borderLeftColor: 'var(--color-primary)',
+                }}
+              >
+                <p className="text-sm leading-relaxed italic font-medium" style={{ color: 'var(--color-charcoal)' }}>
+                  &ldquo;What sets PPR apart is our unwavering commitment to professionalism, accountability, and industry-specific solutions — not merely moving cargo, but building long-term strategic partnerships.&rdquo;
+                </p>
+                <span className="block mt-3 text-[11px] font-bold uppercase tracking-wider" style={{ color: 'var(--color-muted)' }}>
+                  — Management Board, PPR Logistics
+                </span>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Image */}
+          <Reveal variant="fade-in" delay="150ms">
+            <div
+              className="relative rounded-2xl overflow-hidden shadow-2xl img-hover-scale"
+              style={{ aspectRatio: '5/4', border: '1px solid var(--color-border)' }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&q=80&w=800"
+                alt="Corporate logistics planning meeting"
+                className="w-full h-full object-cover"
+              />
+              <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(to top, rgba(17,24,39,0.80) 0%, transparent 60%)' }}
+              />
+              <div className="absolute bottom-6 left-6 right-6 text-white space-y-1.5">
+                <span
+                  className="text-[11px] uppercase font-bold tracking-widest px-3 py-1 rounded-full border"
+                  style={{
+                    color: 'var(--color-primary-light)',
+                    background: 'rgba(255,255,255,0.08)',
+                    borderColor: 'rgba(255,255,255,0.12)',
+                  }}
+                >
+                  Supply Chain Execution
+                </span>
+                <h3
+                  className="font-extrabold text-xl"
+                  style={{ fontFamily: 'var(--font-heading)' }}
+                >
+                  Logistics Engineered As Strategy
+                </h3>
+              </div>
+            </div>
+          </Reveal>
         </div>
-        </Reveal>
       </section>
 
-      {/* Strategic Pillars Section */}
-      <section className="bg-slate-100/70 py-16 border-y border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-6 space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Our Operational Pillars</h2>
-            <p className="text-slate-600 text-xs sm:text-sm">The underlying principles guiding our global cargo management.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Operational Pillars */}
+      <section className="py-14 md:py-16" style={{ background: 'var(--color-bg)', borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
+        <div className="container-site space-y-8">
+          <Reveal variant="fade-up">
+            <div className="text-center max-w-xl mx-auto space-y-2">
+              <span className="eyebrow-tag">Foundations</span>
+              <h2 className="sh-h2 mt-3">Our Operational Pillars</h2>
+              <p className="text-sm" style={{ color: 'var(--color-muted)' }}>The underlying principles guiding our global cargo management.</p>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v, i) => (
               <Reveal key={v.title} variant="fade-up" delay={`${i * 75}ms`}>
-              <div className="card">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  {v.icon}
+                <div className="feature-card h-full">
+                  <div className="feature-card__icon">
+                    <v.Icon size={18} />
+                  </div>
+                  <h3
+                    className="font-bold text-sm"
+                    style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-charcoal)' }}
+                  >
+                    {v.title}
+                  </h3>
+                  <p className="text-xs leading-relaxed" style={{ color: 'var(--color-muted)' }}>
+                    {v.desc}
+                  </p>
                 </div>
-                <h3 className="font-extrabold text-slate-900 text-base">{v.title}</h3>
-                <p className="text-slate-600 text-xs leading-relaxed">{v.desc}</p>
-              </div>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Office Information */}
-      <section className="max-w-7xl mx-auto px-6">
-        <Reveal variant="fade-up">
-        <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-lg grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-4">
-            <span className="text-xs font-bold text-primary uppercase tracking-widest">Regional Presence</span>
-            <h3 className="text-2xl font-extrabold text-slate-900">U.S. Operational Office</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
-              Conveniently situated in the U.S. to coordinate global freight operations, rail transit, and road forwarding across Central Asia, Europe, and the Americas.
-            </p>
-            <div className="space-y-2 text-xs text-slate-600 pt-2 border-t border-slate-100">
-              <div className="flex items-center gap-2">
-                <MapPin size={16} className="text-primary shrink-0" />
-                <span><strong>Address:</strong> 330 W Armory Dr, South Holland, IL 60473, USA</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock size={16} className="text-primary shrink-0" />
-                <span><strong>Operating Hours:</strong> Monday – Friday (7:00 AM – 4:00 PM CST)</span>
-              </div>
+      {/* Real Office Cards */}
+      <section className="py-12 md:py-16" style={{ background: 'var(--color-surface)' }}>
+        <div className="container-site space-y-8">
+          <Reveal variant="fade-up">
+            <div className="max-w-xl space-y-2">
+              <span className="eyebrow-tag">US Presence</span>
+              <h2 className="sh-h2 mt-3">Our Office Locations</h2>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--color-muted)' }}>
+                Visit or contact our US location.
+              </p>
             </div>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-4 text-xs text-slate-600">
-            <h4 className="font-extrabold text-slate-900 text-sm flex items-center gap-2">
-              <ShieldCheck size={18} className="text-primary" /> Key Operations Metrics
-            </h4>
-            <ul className="space-y-2.5 list-disc pl-4 text-slate-600">
-              <li>Direct wagon and container fleet availability.</li>
-              <li>Real-time GPS status tracking for land and sea cargo.</li>
-              <li>24/7 dedicated account manager assignment.</li>
-              <li>Full compliance with customs and border clearance laws.</li>
-            </ul>
+          </Reveal>
+
+          <div className="grid grid-cols-1 gap-6 max-w-2xl">
+            {offices.map((office, i) => (
+              <Reveal key={office.name} variant="fade-up" delay={`${i * 100}ms`}>
+                <div
+                  className="p-6 sm:p-8 rounded-2xl space-y-5"
+                  style={{
+                    background: 'var(--color-bg)',
+                    border: '1px solid var(--color-border)',
+                    boxShadow: 'var(--shadow-card)',
+                  }}
+                >
+                  <h3
+                    className="font-extrabold"
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: '1.1rem',
+                      color: 'var(--color-charcoal)',
+                      borderBottom: '1px solid var(--color-border)',
+                      paddingBottom: '0.75rem',
+                    }}
+                  >
+                    {office.name}
+                  </h3>
+                  <ul className="space-y-3 text-sm">
+                    <li className="flex items-start gap-3">
+                      <MapPin size={15} className="shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                      <span style={{ color: 'var(--color-ink)' }}>{office.address}</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Mail size={15} className="shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                      <a
+                        href={`mailto:${office.email}`}
+                        className="font-semibold hover:underline"
+                        style={{ color: 'var(--color-charcoal)' }}
+                      >
+                        {office.email}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
-        </Reveal>
       </section>
     </div>
   );
