@@ -207,7 +207,7 @@ export default function Home() {
 
         {/* Hero content — staggered entrance */}
         <div className="relative z-10 container-site w-full py-16 md:py-20">
-            <div className="max-w-[710px] lg:w-[54%] space-y-6">
+          <div className="max-w-[710px] lg:w-[54%] space-y-6">
 
             {/* Eyebrow */}
             <div
@@ -391,7 +391,7 @@ export default function Home() {
                     <div className="flex w-full items-center gap-3">
                       <div className="process-step__num" style={{ opacity: 0.8, fontSize: '2.8rem' }}>{step.num}</div>
                       <div className="flex h-9 w-9 items-center justify-center border border-[#F4512A]/25 bg-[#F4512A]/10 text-[#FF7654]">
-                      <step.Icon size={18} />
+                        <step.Icon size={18} />
                       </div>
                     </div>
                     <div className="process-step__title" style={{ color: '#FFFFFF' }}>{step.title}</div>

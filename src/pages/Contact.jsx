@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { MapPin, Mail, Send, CheckCircle } from 'lucide-react';
+import { tryAcquireSubmissionLock } from '../utils/submissionLock';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,18 +11,23 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const submissionLock = useRef(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrorMessage('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!tryAcquireSubmissionLock(submissionLock)) return;
     setIsSubmitting(true);
+    setErrorMessage('');
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch('/api/contact', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,9 +35,9 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
 
-      if (data.success) {
+      if (response.ok && data.success) {
         setIsSuccess(true);
         setFormData({
           name: "",
@@ -40,21 +46,12 @@ export default function Contact() {
           message: "",
         });
       } else {
-        alert(data.message || "Message processed.");
-        setIsSuccess(true);
+        setErrorMessage(data.message || 'We could not send your message. Please try again.');
       }
-    } catch (error) {
-      console.log("Submitting via direct dispatch fallback...", error);
-      setTimeout(() => {
-        setIsSuccess(true);
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      }, 800);
+    } catch {
+      setErrorMessage('We could not send your message. Please check your connection and try again.');
     } finally {
+      submissionLock.current = false;
       setIsSubmitting(false);
     }
   };
@@ -117,8 +114,8 @@ export default function Contact() {
             <div className="space-y-1">
               <h4 className="font-extrabold text-sm text-white">General Inquiries</h4>
               <p className="text-xs text-[var(--color-text-on-dark)]">Reach out via email for freight documentation &amp; inquiries.</p>
-              <a href="mailto:info@prplogistic.com" className="text-[var(--color-primary-light)] font-bold text-xs hover:underline pt-1 inline-block">
-                info@prplogistic.com
+              <a href="mailto:Info@pprlogistics.net" className="text-[var(--color-primary-light)] font-bold text-xs hover:underline pt-1 inline-block">
+                Info@pprlogistics.net
               </a>
             </div>
           </div>
@@ -161,6 +158,7 @@ export default function Contact() {
                       type="text"
                       name="name"
                       required
+                      maxLength={120}
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Your Name"
@@ -177,6 +175,7 @@ export default function Contact() {
                       type="email"
                       name="email"
                       required
+                      maxLength={254}
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="email@example.com"
@@ -194,6 +193,7 @@ export default function Contact() {
                     type="text"
                     name="subject"
                     required
+                    maxLength={200}
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Wagon transit rates, general request, customs clearance, etc."
@@ -210,6 +210,7 @@ export default function Contact() {
                     name="message"
                     rows={6}
                     required
+                    maxLength={5000}
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Provide details about your cargo, origin/destination, target timeframe, or specialized handling..."
@@ -218,9 +219,13 @@ export default function Contact() {
                 </div>
 
                 {/* Submit Button */}
+                {errorMessage && (
+                  <p role="alert" className="text-sm text-red-700" aria-live="polite">{errorMessage}</p>
+                )}
                 <button
                   type="submit"
                   disabled={isSubmitting}
+                  aria-busy={isSubmitting}
                   className={`btn btn-primary w-full justify-center ${
                     isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                   }`}

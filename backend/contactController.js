@@ -18,7 +18,7 @@ exports.sendContactForm = async (req, res) => {
 
             from: process.env.EMAIL_USER,
 
-            to: "info@prplogistic.com",
+            to: "Info@pprlogistics.net",
 
             replyTo: email,
 

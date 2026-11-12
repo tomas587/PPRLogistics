@@ -61,11 +61,11 @@ export default function Header() {
               334 W Armory Dr, Thornton, IL 60476
             </a>
             <a
-              href="mailto:info@prplogistic.com"
+              href="mailto:Info@pprlogistics.net"
               className="flex items-center gap-1.5 text-[var(--color-text-on-dark)] hover:text-white transition-colors text-xs font-medium"
             >
               <Mail size={12} style={{ color: 'var(--color-primary)' }} />
-              info@prplogistic.com
+              Info@pprlogistics.net
             </a>
           </div>
           <div className="flex items-center gap-4 text-slate-500 text-xs">
@@ -267,7 +267,7 @@ export default function Header() {
               </Link>
               <div className="text-center pt-2 space-y-1">
                 <p className="text-xs text-slate-400">US Location: <span className="text-white font-medium">Thornton, IL</span></p>
-                <p className="text-xs text-slate-400">info@prplogistic.com</p>
+                <p className="text-xs text-slate-400">Info@pprlogistics.net</p>
               </div>
             </div>
           </div>
