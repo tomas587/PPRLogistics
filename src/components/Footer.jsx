@@ -110,7 +110,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@prplogistic.com"
+                  href="mailto:Info@pprlogistics.net"
                   className="flex items-start gap-3 text-sm transition-colors duration-150"
                   style={{ color: 'var(--color-text-on-dark)' }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-primary)')}
@@ -120,7 +120,7 @@ export default function Footer() {
                   <div>
                     <p className="text-white text-xs font-semibold mb-0.5">Email</p>
                     <p className="text-xs" style={{ textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,0.2)' }}>
-                      info@prplogistic.com
+                      Info@pprlogistics.net
                     </p>
                   </div>
                 </a>

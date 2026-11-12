@@ -30,7 +30,7 @@ export default function About() {
     {
       name: 'US Location',
       address: '334 W Armory Dr, Thornton, IL 60476, USA',
-      email: 'info@prplogistic.com',
+      email: 'Info@pprlogistics.net',
     },
   ];
 
